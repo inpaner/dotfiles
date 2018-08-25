@@ -1,0 +1,352 @@
+#!/usr/bin/polybar ~/.config/bspwm/config-polybar
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+############################
+######    SETTINGS    ######
+############################
+[settings]
+screenchange-reload = true
+
+
+############################
+######     COLORS     ######
+############################
+[colors]
+white = #e6e3df
+gray = #998e80
+black = #332f2b
+blue = #bf7573
+yellow = #EBCB8B
+orange = #D08770
+red = #bf9c73
+green = #bbbf73
+magenta = #B48EAD
+background-0 = #1d1f21
+background-1 = #1d1f21
+;include ~/Misc/nord-xresources/src/nord
+
+
+#############################
+######    BSPWM BAR    ######
+#############################
+[bar/bspwm]
+monitor = eDP1
+radius = 0.0
+fixed-center = true
+bottom = false
+height = 26
+
+!border-bottom-size = 2
+!border-color = ${colors.black}
+
+enable-ipc = true
+
+padding-left = 1
+padding-right = 1
+
+module-margin = 1
+
+underline-size = 3
+
+modules-left = bspwm 
+modules-center = xwindow
+modules-right =  network volume battery date
+
+background-0 = ${colors.black}
+background-1 = ${colors.black}
+foreground = ${colors.white}
+
+;font-0 = Mononoki:size=10;2
+font-0 = DejaVu Sans Mono:size=10;2
+font-1 = Font Awesome 5 Free:style=Regular:pixelsize=8;1
+font-2 = Font Awesome 5 Free:style=Solid:pixelsize=8;1
+font-3 = Font Awesome 5 Brands:pixelsize=8;1
+;font-4 = Mononoki:style=Bold:size=7;2
+font-4 = Source Code Pro:size=10;2
+font-5 = FontAwesome:weight=bold:size=7;2
+font-6 = fontawesome:size=8;2
+;font-7 = Mononoki:size=7;2
+font-7 = Source Code Pro:size=10;2
+
+#######################################
+######     MODULES - TOP BAR     ######
+#######################################
+
+[module/spotify]
+type = custom/script
+exec = mediaplayer.py
+exec-if = pgrep -x spotify
+label = " %output%"
+interval = 1
+format-prefix = 
+format-prefix-foreground = ${colors.green}
+
+
+[module/network]
+type = custom/script
+exec = check-network
+click-left = termite --exec "ncwifi"
+;label-padding = 1
+label = %output%
+tail = true
+interval = 0.3
+
+[module/bspwm]
+type = internal/bspwm
+
+;label-separator = |
+;label-separator-padding = 1
+;label-separator-foreground = ${colors.gray}
+;label-separator-background = ${colors.gray}
+
+format = <label-state>
+
+label-monocle = 
+label-monocle-font = 3
+label-tiled = 
+label-fullscreen = 
+label-floating = 
+label-pseudotiled = 
+label-locked = 
+label-locked-foreground = ${colors.yellow}
+label-sticky = 
+label-sticky-foreground = ${colors.blue}
+label-private = 
+label-private-foreground = ${colors.red}
+
+;label-focused = 
+label-focused = %name%
+label-focused-foreground = ${colors.black}
+label-focused-background = ${colors.red}
+label-focused-padding = 2
+;label-focused-font = 3
+
+;label-occupied = 
+label-occupied = %name%
+label-occupied-padding = 1
+label-occupied-foreground = ${colors.white}
+;label-occupied-font = 3
+
+label-urgent = 
+label-urgent-foreground = ${colors.white}
+label-urgent-background = ${colors.red}
+label-urgent-padding = 2
+label-urgent-font = 3
+
+;label-empty = 
+label-empty = %name%
+label-empty-foreground = ${colors.gray}
+label-empty-padding = 1
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:37:...%
+label-empty = root-window
+label-empty-foreground = ${colors.yellow}
+label-background = ${colors.black}
+label-padding = 1
+;format-font = 1
+click-left = skippy-xd
+
+[module/battery]
+;type = custom/script
+;exec = batt
+;label = %output%
+
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 100
+interval = 1
+
+format-charging = <label-charging>
+label-charging =  %percentage:3%%
+
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage:3%%
+
+format-full = <label-full>
+label-full =  %percentage:3%%
+
+ramp-capacity-0 = 
+ramp-capacity-0-font = 7
+ramp-capacity-1 = 
+ramp-capacity-1-font = 7
+ramp-capacity-2 = 
+ramp-capacity-2-font = 7
+ramp-capacity-3 = 
+ramp-capacity-3-font = 7
+ramp-capacity-4 = 
+ramp-capacity-4-font = 7
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1-foreground = ${colors.orange}
+ramp-capacity-2-foreground = ${colors.yellow}
+ramp-capacity-foreground = ${colors.white}
+
+[module/date]
+type = internal/date
+date-alt = "%a - %m/%d"
+date = "%a %m/%d - %H:%M%"
+interval = 1
+format-background = ${colors.black}
+format-padding = 1
+format-font = 5
+
+[module/powerbutton]
+type = custom/text
+content-background = ${colors.red}
+content-padding = 1
+content = 
+click-left = power-menu -c -p rofi
+
+[module/volume]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage:3%%
+label-volume-foreground = ${root.foreground}
+
+format-muted-foreground = ${colors.gray}
+label-muted =  %percentage:3%%
+
+ramp-volume-0 = 
+ramp-volume-0-foreground = ${colors.gray}
+ramp-volume-1 = 
+ramp-volume-1-foreground = ${colors.yellow}
+ramp-volume-2 = 
+ramp-volume-2-foreground = ${colors.orange}
+ramp-volume-3 = 
+ramp-volume-3-foreground = ${colors.red}
+ramp-volume-font = 3
+
+;bar-volume-width = 30
+;bar-volume-foreground-0 = ${colors.blue}
+;bar-volume-foreground-1 = ${colors.blue}
+;bar-volume-foreground-2 = ${colors.yellow}
+;bar-volume-foreground-3 = ${colors.red}
+;bar-volume-indicator-foreground = ${colors.white}
+;bar-volume-gradient = false
+;#bar-volume-indicator = 
+;bar-volume-indicator = |
+;bar-volume-indicator-font = 5
+;bar-volume-fill = ─
+;bar-volume-fill = |
+;bar-volume-fill-font = 5
+;#bar-volume-empty = ─
+;bar-volume-empty = |
+;bar-volume-empty-font = 5
+;bar-volume-empty-foreground = ${colors.gray}
+
+[module/backlight]
+type = internal/xbacklight
+card = intel_backlight
+interval = 1
+format = <ramp> <label>
+scroll-up = "xbacklight -inc 5 -steps 30; notify-send 'brightness up'"
+scroll-down = "xbacklight -dec 5 -steps 30; notify-send 'brightness down'"
+
+label = %percentage:3%%
+
+ramp-0 = 
+ramp-0-font = 3
+ramp-0-foreground = ${colors.red}
+ramp-1 = 
+ramp-1-font = 3
+ramp-1-foreground = ${colors.orange}
+ramp-2 = 
+ramp-2-font = 3
+ramp-2-foreground = ${colors.yellow}
+ramp-3 = 
+ramp-3-font = 3
+ramp-3-foreground = ${colors.white}
+
+;ramp-1 = 
+;ramp-2 = 
+;ramp-3 = 
+;ramp-3-font = 3
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+
+format = <label> <bar-load>
+;format-padding = 1
+;format = <label> <ramp-coreload>
+
+label = %{A1:termite --exec=htop & disown:} %percentage:3%%%{A}
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+ramp-coreload-0-foreground = ${colors.gray}
+ramp-coreload-1-foreground = ${colors.green}
+ramp-coreload-2-foreground = ${colors.green}
+ramp-coreload-3-foreground = ${colors.yellow}
+ramp-coreload-4-foreground = ${colors.yellow}
+ramp-coreload-5-foreground = ${colors.orange}
+ramp-coreload-6-foreground = ${colors.orange}
+ramp-coreload-7-foreground = ${colors.red}
+;ramp-coreload-font = 8
+
+;ramp-coreload-0-foreground = #55aa55
+;ramp-coreload-1-foreground = #55aa55
+;ramp-coreload-2-foreground = #55aa55
+;ramp-coreload-3-foreground = #55aa55
+;ramp-coreload-4-foreground = #f5a70a
+;ramp-coreload-5-foreground = #f5a70a
+;ramp-coreload-6-foreground = #ff5555
+;ramp-coreload-7-foreground = #ff5555
+
+bar-load-width = 10
+bar-load-foreground-0 = ${colors.blue}
+bar-load-foreground-1 = ${colors.blue}
+bar-load-foreground-2 = ${colors.yellow}
+bar-load-foreground-3 = ${colors.red}
+bar-load-gradient = false
+bar-load-indicator = |
+bar-load-indicator-font = 5
+bar-load-indicator-foreground =
+bar-load-fill = |
+bar-load-fill-font = 5
+bar-load-empty = |
+bar-load-empty-font = 5
+bar-load-empty-foreground = ${colors.gray}
+bar-load-font = 5
+
+[module/memory]
+type = internal/memory
+interval = 0.2
+
+format = <label>
+;format-padding = 1
+label = %{A1:termite --exec=htop & disown:} %percentage_used:3%%%{A}
+
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
+ramp-used-0-foreground = ${colors.gray}
+ramp-used-1-foreground = ${colors.green}
+ramp-used-2-foreground = ${colors.green}
+ramp-used-3-foreground = ${colors.yellow}
+ramp-used-4-foreground = ${colors.yellow}
+ramp-used-5-foreground = ${colors.orange}
+ramp-used-6-foreground = ${colors.orange}
+ramp-used-7-foreground = ${colors.red}
+
+############################################
+#######     MODULES - BOTTOM BAR     #######
+############################################
+
