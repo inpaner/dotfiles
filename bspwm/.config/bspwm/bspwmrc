@@ -48,3 +48,4 @@ redshift -t 6500:3000 &
 export VISUAL='vim -X'
 export EDITOR='vim -X'
 export TERM=xterm
+dropbox start
