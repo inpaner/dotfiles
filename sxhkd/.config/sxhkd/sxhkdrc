@@ -15,6 +15,12 @@ super + e
 super + shift + e
 	nemo
 
+super + 9
+	bash ~/bin/lock.sh
+
+super + 0
+	systemctl suspend && bash ~/bin/lock.sh
+
 # program launcher
 super + @space
 	rofi -show drun
