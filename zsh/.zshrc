@@ -182,7 +182,7 @@ alias na='cd ~/aipros/nlp-api'
 alias nc='cd ~/aipros/nlp-cassandra'
 alias np='cd ~/aipros/nlp-prep'
 
-export PATH="/home/inpaner/miniconda3/bin:$PATH"
-
+export PATH="$PATH:$HOME/miniconda3/bin"
+export PATH="$PATH:$HOME/bin"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+export TERM=xterm
