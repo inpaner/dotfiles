@@ -188,7 +188,6 @@ ramp-capacity-foreground = ${colors.white}
 
 [module/date]
 type = internal/date
-date-alt = "%a - %m/%d"
 date = "%a %m/%d - %H:%M%"
 interval = 1
 format-background = ${colors.black}
@@ -200,7 +199,7 @@ type = custom/text
 content-background = ${colors.red}
 content-padding = 1
 content = 
-click-left = power-menu -c -p rofi
+click-left = bash power-menu -c -p rofi
 
 [module/volume]
 type = internal/pulseaudio

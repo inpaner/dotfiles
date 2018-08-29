@@ -21,6 +21,9 @@ super + 9
 super + 0
 	systemctl suspend && bash ~/bin/lock.sh
 
+super + Delete
+	bash power-menu -c -p rofi
+
 # program launcher
 super + @space
 	rofi -show drun
