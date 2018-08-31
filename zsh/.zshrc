@@ -171,8 +171,9 @@ PROMPT_DIRTRIM=1
 
 alias clear-trash='rm -rf ~/.local/share/Trash/*'
 
-alias gpu='ssh -i ~/.ssh-aipros/id_rsa ivan1p@ifg.gpu.ai-pros.com'
-alias codecamp='ssh -i ~/.ssh-aipros/id_rsa ivan1p@codecamp.ai-pros.com'
+alias gpu='ssh -i ~/.ssh/id_rsa-aipros ivan1p@ifg.gpu.ai-pros.com'
+alias gpuj='ssh -i ~/.ssh/id_rsa-aipros -L 8888:localhost:8123 ivan1p@ifg.gpu.ai-pros.com'
+alias codecamp='ssh -i ~/.ssh/id_rsa-aipros ivan1p@codecamp.ai-pros.com'
 alias sml='/home/inpaner/miniconda3/bin/spoof-mac.py list'
 alias smr='sudo /home/inpaner/miniconda3/bin/spoof-mac.py randomize wlp58s0'
 
@@ -182,7 +183,6 @@ alias na='cd ~/aipros/nlp-api'
 alias nc='cd ~/aipros/nlp-cassandra'
 alias np='cd ~/aipros/nlp-prep'
 
-export PATH="$PATH:$HOME/miniconda3/bin"
-export PATH="$PATH:$HOME/bin"
+export PATH="$HOME/miniconda3/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export TERM=xterm
