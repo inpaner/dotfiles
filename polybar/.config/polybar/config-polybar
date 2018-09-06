@@ -55,6 +55,7 @@ modules-left = bspwm
 modules-center = xwindow
 modules-right =  network volume battery date
 
+tray-position = right
 background-0 = ${colors.black}
 background-1 = ${colors.black}
 foreground = ${colors.white}
