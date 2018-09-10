@@ -7,7 +7,7 @@ super + Return
 	termite
 
 super + q
-	google-chrome
+	firefox-developer
 
 super + e
 	termite -e ranger
@@ -21,7 +21,7 @@ super + 9
 super + 0
 	systemctl suspend && bash ~/bin/lock.sh
 
-super + Delete
+super + BackSpace
 	bash power-menu -c -p rofi
 
 # program launcher

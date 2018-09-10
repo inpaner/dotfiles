@@ -18,7 +18,7 @@ bspc config urgent_border_color   "#bf9c73"
 bspc config presel_feedback_color "#e6e3df"
 bspc config window_gap           $gap;
 
-bspc config split_ratio          0.52
+bspc config split_ratio          0.50
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config single_monocle	 true
