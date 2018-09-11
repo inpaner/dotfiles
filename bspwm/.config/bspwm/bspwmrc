@@ -49,3 +49,4 @@ export VISUAL='vim -X'
 export EDITOR='vim -X'
 export TERM=xterm
 dropbox start
+rescuetime &
