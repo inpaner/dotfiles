@@ -174,6 +174,7 @@ alias clear-trash='rm -rf ~/.local/share/Trash/*'
 alias gpu='ssh -i ~/.ssh/id_rsa-aipros ivan1p@ifg.gpu.ai-pros.com'
 alias gpuj='ssh -i ~/.ssh/id_rsa-aipros -L 8888:localhost:8123 ivan1p@ifg.gpu.ai-pros.com'
 alias codecamp='ssh -i ~/.ssh/id_rsa-aipros ivan1p@codecamp.ai-pros.com'
+alias sm='sudo service mongod start'
 alias sml='/home/inpaner/miniconda3/bin/spoof-mac.py list'
 alias smr='sudo /home/inpaner/miniconda3/bin/spoof-mac.py randomize wlp58s0'
 
