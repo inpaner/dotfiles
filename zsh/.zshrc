@@ -82,7 +82,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     gitfast python z zsh-autosuggestions vi-mode
-    virtualenv-prompt
+    virtualenv-prompt kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -187,3 +187,7 @@ alias np='cd ~/aipros/nlp-prep'
 export PATH="$HOME/miniconda3/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias use-dev='gcloud config set project caramel-limiter-145016;kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep'
+alias use-staging='gcloud config set project airep-staging;kubectl config use-context gke_airep-staging_us-west1_airep-staging'
+
