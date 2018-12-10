@@ -15,3 +15,6 @@ set wrap breakindent
 set encoding=utf-8
 set number
 set title
+set clipboard+=unnamedplus
+
+nnoremap <esc> :noh<return><esc>
