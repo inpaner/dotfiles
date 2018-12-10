@@ -4,6 +4,7 @@ mouse_autohide = true
 allow_bold = true
 title = termite
 dynamic-title = false
+scrollback_lines = -1
 
 [colors]
 # hard contrast: background = #1d2021
