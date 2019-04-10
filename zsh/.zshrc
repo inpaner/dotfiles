@@ -81,7 +81,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    gitfast python z zsh-autosuggestions vi-mode
+    gitfast python z vi-mode
     virtualenv-prompt kubectl
 )
 
@@ -133,6 +133,7 @@ alias gbdf='git branch -D'
 alias gc='git commit -v'
 alias gcm='git commit --message'
 alias gcf='git commit --fixup'
+alias gfp='git fetch --prune'
 alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gcom='git checkout master'
@@ -141,10 +142,10 @@ alias gcod='git checkout develop'
 alias gd='git diff'
 alias gda='git diff HEAD'
 alias gi='git init'
-# alias glg='git log --graph --oneline --decorate --all'
-alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias glg='git log --graph --oneline --decorate --all'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human"
 alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
-alias gm='git merge --no-ff'
+alias gm='git merge --no-ff --stat -v'
 alias gma='git merge --abort'
 alias gmc='git merge --continue'
 alias gp='git pull'
@@ -190,4 +191,11 @@ export PATH="$HOME/bin:$PATH"
 
 alias use-dev='gcloud config set project caramel-limiter-145016;kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep'
 alias use-staging='gcloud config set project airep-staging;kubectl config use-context gke_airep-staging_us-west1_airep-staging'
+alias use-prod='gcloud config set project aip-qmg-travel;kubectl config use-context gke_aip-qmg-travel_us-west1_airep-qmg-travel'
+alias use-test='gcloud config set project aip-team9-test;kubectl config use-context gke_aip-team9-test_us-west1_team9-k8s'
 
+alias ncw='ncwifi'
+alias py='python'
+alias v='vim'
+alias ma='mongo ai-pros-vp1'
+alias poetry-shell='. "$(dirname $(poetry run which python))/activate"'
