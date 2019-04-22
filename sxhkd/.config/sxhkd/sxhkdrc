@@ -15,10 +15,10 @@ super + e
 super + shift + e
 	nemo
 
-super + 9
+super + minus
 	bash ~/bin/lock.sh
 
-super + 0
+super + equal
 	systemctl suspend && bash ~/bin/lock.sh
 
 super + BackSpace

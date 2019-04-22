@@ -7,7 +7,7 @@ export PANEL_HEIGHT
 
 sxhkd &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
 bspc config top_padding $(($PANEL_HEIGHT -$gap))
 
