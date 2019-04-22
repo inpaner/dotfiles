@@ -36,9 +36,6 @@ bash $HOME/.config/polybar/launch.sh bspwm &
 
 feh --bg-fill ~/Pictures/bg.jpg
 
-setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape'
-
 dunst -c ~/.config/dunst/dunstrc &
 
 wmname LG3D
