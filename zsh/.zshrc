@@ -2,6 +2,7 @@
 
 zstyle ':completion:*' completer _complete _ignored
 zstyle :compinstall filename '/home/inpaner/.zshrc'
+fpath+=~/.zfunc
 
 autoload -Uz compinit
 compinit
@@ -80,9 +81,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
+ plugins=(
     gitfast python z vi-mode
-    virtualenv-prompt kubectl
+    kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -128,11 +129,13 @@ alias gaa='git add .'
 alias gaaa='git add --all'
 alias gau='git add --update'
 alias gb='git branch'
+alias gba='git branch --all'
 alias gbd='git branch --delete '
-alias gbdf='git branch -D'
+alias gbD='git branch -D'
 alias gc='git commit -v'
 alias gcm='git commit --message'
 alias gcf='git commit --fixup'
+alias gf='git fetch'
 alias gfp='git fetch --prune'
 alias gco='git checkout'
 alias gcob='git checkout -b'
@@ -176,8 +179,6 @@ alias gpu='ssh -i ~/.ssh/id_rsa-aipros ivan1p@ifg.gpu.ai-pros.com'
 alias gpuj='ssh -i ~/.ssh/id_rsa-aipros -L 8888:localhost:8123 ivan1p@ifg.gpu.ai-pros.com'
 alias codecamp='ssh -i ~/.ssh/id_rsa-aipros ivan1p@codecamp.ai-pros.com'
 alias sm='sudo service mongod start'
-alias sml='/home/inpaner/miniconda3/bin/spoof-mac.py list'
-alias smr='sudo /home/inpaner/miniconda3/bin/spoof-mac.py randomize wlp58s0'
 
 alias nof='cd ~/aipros/nlp-offline'
 alias non='cd ~/aipros/nlp-online'
@@ -185,8 +186,10 @@ alias na='cd ~/aipros/nlp-api'
 alias nc='cd ~/aipros/nlp-cassandra'
 alias np='cd ~/aipros/nlp-prep'
 
-export PATH="$HOME/miniconda3/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="/home/inpaner/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias use-dev='gcloud config set project caramel-limiter-145016;kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep'
@@ -194,8 +197,9 @@ alias use-staging='gcloud config set project airep-staging;kubectl config use-co
 alias use-prod='gcloud config set project aip-qmg-travel;kubectl config use-context gke_aip-qmg-travel_us-west1_airep-qmg-travel'
 alias use-test='gcloud config set project aip-team9-test;kubectl config use-context gke_aip-team9-test_us-west1_team9-k8s'
 
-alias ncw='ncwifi'
+alias wf='ncwifi'
 alias py='python'
+alias pyv='pyenv version'
 alias v='vim'
 alias ma='mongo ai-pros-vp1'
 alias poetry-shell='. "$(dirname $(poetry run which python))/activate"'
