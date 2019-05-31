@@ -2,7 +2,6 @@
 
 zstyle ':completion:*' completer _complete _ignored
 zstyle :compinstall filename '/home/inpaner/.zshrc'
-fpath+=~/.zfunc
 
 autoload -Uz compinit
 compinit
@@ -83,7 +82,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
  plugins=(
     gitfast python z vi-mode
-    kubectl
+    kubectl virtualenv-prompt
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -124,6 +123,7 @@ alias ldir="ls -al | grep ^d" # List all directories in current directory in lon
 # ----------------------
 # Git Aliases
 # ----------------------
+alias g='git'
 alias ga='git add'
 alias gaa='git add .'
 alias gaaa='git add --all'
@@ -198,8 +198,8 @@ alias use-prod='gcloud config set project aip-qmg-travel;kubectl config use-cont
 alias use-test='gcloud config set project aip-team9-test;kubectl config use-context gke_aip-team9-test_us-west1_team9-k8s'
 
 alias wf='ncwifi'
-alias py='python'
-alias pyv='pyenv version'
+alias p='python'
+alias pv='pyenv version'
 alias v='vim'
 alias ma='mongo ai-pros-vp1'
 alias poetry-shell='. "$(dirname $(poetry run which python))/activate"'
