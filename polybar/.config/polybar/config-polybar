@@ -33,7 +33,7 @@ background-1 = #1d1f21
 ######    BSPWM BAR    ######
 #############################
 [bar/bspwm]
-monitor = eDP1
+monitor = HDMI-0
 radius = 0.0
 fixed-center = true
 bottom = false
