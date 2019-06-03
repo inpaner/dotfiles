@@ -1,0 +1,50 @@
+[global]
+    font = Source Code Pro 9
+    allow_markup = yes
+    format = "<b>%s</b>\n%b"
+    sort = yes
+    indicate_hidden = yes
+    alignment = left
+    bounce_freq = 0
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    geometry = "300x5-10+40"
+    transparency = 0
+    idle_threshold = 120
+    monitor = 0
+    follow = mouse
+    sticky_history = yes
+    line_height = 0
+    separator_height = 2
+    padding = 12
+    horizontal_padding = 12
+    separator_color = frame
+    startup_notification = false
+    dmenu = /usr/bin/dmenu -p dunst
+    browser = /usr/bin/google-chrome
+
+[frame]
+    width = 3
+    color = "#e6e3df"
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#e6e3df"
+    foreground = "#332f2b"
+    timeout = 10
+
+[urgency_normal]
+    background = "#e6e3df"
+    foreground = "#332f2b"
+    timeout = 10
+
+[urgency_critical]
+    background = "#1d1f21"
+    foreground = "#332f2b"
+    timeout = 0
