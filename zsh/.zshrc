@@ -174,6 +174,7 @@ function glf() { git log --all --grep="$1"; }
 
 PROMPT_DIRTRIM=1
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/home/inpaner/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
