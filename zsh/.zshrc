@@ -176,6 +176,8 @@ PROMPT_DIRTRIM=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/home/inpaner/.pyenv/bin:$PATH"
+export PATH=$PATH:/home/inpaner/bin/slack-theme
+export SLACK_THEME_SHELL_PROFILE="~/.zshrc"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
