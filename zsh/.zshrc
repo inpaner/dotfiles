@@ -177,6 +177,7 @@ PROMPT_DIRTRIM=1
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/home/inpaner/.pyenv/bin:$PATH"
 export PATH=$PATH:/home/inpaner/bin/slack-theme
+export PATH=$PATH:/home/inpaner/.poetry/bin
 export SLACK_THEME_SHELL_PROFILE="~/.zshrc"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -209,3 +210,9 @@ alias poetry-shell='. "$(dirname $(poetry run which python))/activate"'
 alias update='sudo apt update'
 alias upgrade='sudo apt upgrade'
 alias autoremove='sudo apt autoremove'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/inpaner/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/inpaner/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
