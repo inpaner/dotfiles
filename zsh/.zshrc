@@ -196,8 +196,9 @@ alias nc='cd ~/aipros/nlp-cassandra'
 alias np='cd ~/aipros/nlp-prep'
 
 alias use-dev='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=airep-dev'
-alias use-cm='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=campaign-manager-dev'
 alias use-staging='gcloud config set project airep-staging;kubectl config use-context gke_airep-staging_us-west1_airep-staging'
+alias use-cmd='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=campaign-manager-dev'
+alias use-cms='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=campaign-manager-staging'
 alias use-prod='gcloud config set project aip-qmg-travel;kubectl config use-context gke_aip-qmg-travel_us-west1_airep-qmg-travel'
 alias use-test='gcloud config set project aip-team9-test;kubectl config use-context gke_aip-team9-test_us-west1_team9-k8s'
 
