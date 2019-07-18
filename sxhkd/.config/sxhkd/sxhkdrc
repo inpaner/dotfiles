@@ -37,13 +37,13 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 XF86AudioMute
-    pactl set-sink-mute 1 toggle
+    pactl set-sink-mute 2 toggle
 
 XF86AudioRaiseVolume
-    pactl set-sink-volume 1 +5%
+    pactl set-sink-volume 2 +5%
 
 XF86AudioLowerVolume
-    pactl set-sink-volume 1 -5%;
+    pactl set-sink-volume 2 -5%;
 
 
 
