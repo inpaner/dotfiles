@@ -149,6 +149,7 @@ alias gi='git init'
 alias glg='git log --graph --oneline --decorate --all'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human"
 alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias glfp="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human --first-parent"
 alias gm='git merge --no-ff --stat -v'
 alias gma='git merge --abort'
 alias gmc='git merge --continue'
