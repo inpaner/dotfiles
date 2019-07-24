@@ -34,3 +34,4 @@ setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 setxkbmap -option shift:both_capslock
 
+
