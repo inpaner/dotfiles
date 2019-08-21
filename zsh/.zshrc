@@ -192,7 +192,7 @@ alias nof='cd ~/aipros/nlp-offline'
 alias non='cd ~/aipros/nlp-online'
 alias na='cd ~/aipros/nlp-api'
 alias nc='cd ~/aipros/nlp-cassandra'
-alias np='cd ~/aipros/nlp-prep'
+alias nv='cd ~/aipros/nlp-validator'
 
 alias use-dev='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=airep-dev'
 alias use-staging='gcloud config set project airep-staging;kubectl config use-context gke_airep-staging_us-west1_airep-staging'
