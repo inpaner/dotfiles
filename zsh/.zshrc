@@ -148,12 +148,14 @@ alias gda='git diff HEAD'
 alias gi='git init'
 alias glg='git log --graph --oneline --decorate --all'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human"
-alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
 alias glfp="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human --first-parent"
-alias gm='git merge --no-ff --stat -v'
+alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias gm='git merge --no-ff -v'
+alias gmm='git merge --no-ff --no-commit -v'
 alias gma='git merge --abort'
 alias gmc='git merge --continue'
 alias gp='git pull'
+alias gps='git push --set-upstream origin'
 alias gpr='git pull --rebase'
 alias gr='git rebase'
 alias gs='git status'
@@ -172,10 +174,13 @@ alias gpa='bash ~/repos/personal-scripts/git-pull-all.sh'
 # ----------------------
 # Git log find by commit message
 function glf() { git log --all --grep="$1"; }
+function nuke() {git branch -D "$1"; git push origin -d "$1"; git checkout -b "$1"}
+
 
 PROMPT_DIRTRIM=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export CFLAGS="-O2"
 export PATH="/home/inpaner/.pyenv/bin:$PATH"
 export PATH=$PATH:/home/inpaner/.poetry/bin
 eval "$(pyenv init -)"
@@ -192,13 +197,13 @@ alias nof='cd ~/aipros/nlp-offline'
 alias non='cd ~/aipros/nlp-online'
 alias na='cd ~/aipros/nlp-api'
 alias nc='cd ~/aipros/nlp-cassandra'
-alias np='cd ~/aipros/nlp-prep'
+alias nv='cd ~/aipros/nlp-validator'
 
 alias use-dev='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=airep-dev'
-alias use-staging='gcloud config set project airep-staging;kubectl config use-context gke_airep-staging_us-west1_airep-staging'
+alias use-stg='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=airep-staging'
+alias use-prod='gcloud config set project aip-qmg-travel;kubectl config use-context gke_aip-qmg-travel_us-west1_airep-qmg-travel'
 alias use-cmd='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=campaign-manager-dev'
 alias use-cms='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=campaign-manager-staging'
-alias use-prod='gcloud config set project aip-qmg-travel;kubectl config use-context gke_aip-qmg-travel_us-west1_airep-qmg-travel'
 alias use-test='gcloud config set project aip-team9-test;kubectl config use-context gke_aip-team9-test_us-west1_team9-k8s'
 
 alias wf='ncwifi'
@@ -217,3 +222,5 @@ if [ -f '/home/inpaner/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
