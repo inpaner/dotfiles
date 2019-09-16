@@ -1,0 +1,29 @@
+set ignorecase
+set smartcase
+set surround
+set scrolloff=3         " 3 lines above/below cursor when scrolling
+
+set clipboard+=unnamed
+set ideajoin
+
+let mapleader = " "
+
+nmap zj o<Esc>k
+nmap zk O<Esc>j
+
+map <leader>g :action GotoDeclaration<cr>
+map <leader>b :action Back<cr>
+map <leader>f :action Forward<cr>
+
+map <leader>f :action GotoFile<cr>
+map <leader>c :action GotoClass<cr>
+map <leader>sy :action GotoSymbol<cr>
+map <leader>m :action FileStructurePopup<cr>
+map <leader>u :action FindUsages<CR>
+map <leader>e :action ShowErrorDescription<cr>
+map <leader>r :action ChooseRunConfiguration<CR>
+
+map <leader>[ :action EditorCodeBlockStart<CR>
+map <leader>] :action EditorCodeBlockEnd<CR>
+
+imap <C-v> <Esc>:action $Paste<CR>
