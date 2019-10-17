@@ -45,6 +45,8 @@ play -q ~/Music/silent.mp3 &
 
 wmname LG3D
 
+setxkbmap -option compose:ralt
+
 redshift -t 6500:3000 &
 
 export VISUAL='vim -X'
