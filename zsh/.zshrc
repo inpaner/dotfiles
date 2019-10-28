@@ -229,4 +229,4 @@ if [ -f '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
+# if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
