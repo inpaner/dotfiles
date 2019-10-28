@@ -1,5 +1,5 @@
 [options]
-font = DejaVu Sans Mono 15px
+font = DejaVu Sans Mono 16px
 mouse_autohide = true
 allow_bold = true
 title = termite
