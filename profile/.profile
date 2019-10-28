@@ -27,6 +27,8 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 # Ubuntu make installation of Ubuntu Make binary symlink
 PATH=/home/inpaner/.local/share/umake/bin:$PATH
+PATH=/home/inpaner/.cargo/bin:$PATH
+
 
 export GTK2_RC_FILES=/home/inpaner/.gtkrc-2.0
 
