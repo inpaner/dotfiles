@@ -27,11 +27,10 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 # Ubuntu make installation of Ubuntu Make binary symlink
 PATH=/home/inpaner/.local/share/umake/bin:$PATH
-
+export PATH="$HOME/.cargo/bin:$PATH"
 export GTK2_RC_FILES=/home/inpaner/.gtkrc-2.0
 
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 setxkbmap -option shift:both_capslock
-
 

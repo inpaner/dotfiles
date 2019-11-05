@@ -10,7 +10,7 @@ super + q
 	firefox-developer
 
 super + e
-	termite -e ranger
+	kitty -e ranger
 
 super + shift + e
 	nemo
