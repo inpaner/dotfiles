@@ -5,6 +5,7 @@ zstyle :compinstall filename '/home/inpaner/.zshrc'
 
 autoload -Uz compinit
 compinit
+kitty + complete setup zsh | source /dev/stdin
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -183,7 +184,6 @@ function nuke() {git branch -D "$1"; git push origin -d "$1"; git checkout -b "$
 
 PROMPT_DIRTRIM=1
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export CFLAGS="-O2"
 export PATH="/home/inpaner/.pyenv/bin:$PATH"
 export PATH=$PATH:/home/inpaner/.poetry/bin
@@ -211,6 +211,8 @@ alias use-cms='gcloud config set project caramel-limiter-145016; kubectl config 
 alias use-test='gcloud config set project aip-team9-test;kubectl config use-context gke_aip-team9-test_us-west1_team9-k8s'
 
 alias wf='ncwifi'
+alias ls='exa'
+alias l='exa --long --header --git --all'
 alias p='python'
 alias pv='pyenv version'
 alias v='vim'
@@ -229,4 +231,7 @@ if [ -f '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND="fd . $HOME"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd -t d . $HOME"
