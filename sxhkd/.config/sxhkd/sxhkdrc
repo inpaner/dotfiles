@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	termite
+	kitty
 
 super + q
 	firefox-developer
@@ -37,13 +37,13 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 XF86AudioMute
-    pactl set-sink-mute 2 toggle
+    amixer -D pulse sset Master toggle
 
 XF86AudioRaiseVolume
-    pactl set-sink-volume 2 +5%
+    amixer -D pulse sset Master 5%+
 
 XF86AudioLowerVolume
-    pactl set-sink-volume 2 -5%;
+    amixer -D pulse sset Master 5%-
 
 
 
