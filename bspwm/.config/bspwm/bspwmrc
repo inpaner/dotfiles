@@ -38,7 +38,7 @@ bspc rule -a Slack desktop='^9' follow=false
 
 bash $HOME/.config/polybar/launch.sh bspwm &
 
-feh --bg-fill ~/Pictures/bg.png
+feh --bg-fill ~/Pictures/black.jpg &
 
 dunst -c ~/.config/dunst/dunstrc &
 play -q ~/Music/silent.mp3 &
