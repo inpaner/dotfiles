@@ -1,19 +1,51 @@
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _complete _ignored
-zstyle :compinstall filename '/home/inpaner/.zshrc'
+# zstyle ':completion:*' completer _complete _ignored
+# zstyle :compinstall filename '/home/inpaner/.zshrc'
 
 autoload -Uz compinit
+zstyle ':completion:*' menu select # select completions with arrow keys
+zstyle ':completion:*' group-name '' # group results by category
+zstyle ':completion:::::' completer _expand _complete _ignored _approximate
+zmodload -i zsh/complist
 compinit
-kitty + complete setup zsh | source /dev/stdin
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory autocd extendedglob
-# End of lines configured by zsh-newuser-install
+_comp_options+=(globdots)
 
+kitty + complete setup zsh | source /dev/stdin
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt hist_ignore_all_dups # remove older duplicate entries from history
+setopt hist_reduce_blanks # remove superfluous blanks from history items
+setopt inc_append_history # save history entries as soon as they are entered
+setopt share_history # share history between different instances of the shell
+setopt auto_cd # cd by typing directory name if its not a command
+setopt correct_all # autocorrect commands
+setopt auto_list # automatically list choices on ambiguous completion
+setopt auto_menu # automatically use menu completion
+setopt always_to_end # move cursor to end if word had one match
+setopt globdots
+setopt extendedglob
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+ranger-cd() {
+    tmp="$(mktemp)"
+    ranger --choosedir="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
+bindkey -s '^o' 'ranger-cd\n'
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -82,9 +114,11 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
  plugins=(
-    gitfast python z vi-mode
+    vi-mode
+    gitfast python z 
     kubectl virtualenv-prompt
     dirhistory
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
