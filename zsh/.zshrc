@@ -245,6 +245,7 @@ alias use-cms='gcloud config set project caramel-limiter-145016; kubectl config 
 alias use-test='gcloud config set project aip-team9-test;kubectl config use-context gke_aip-team9-test_us-west1_team9-k8s'
 
 alias wf='ncwifi'
+alias b='bat'
 alias ls='exa'
 alias l='exa --long --header --git --all'
 alias p='python'
