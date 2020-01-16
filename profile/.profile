@@ -31,6 +31,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export GTK2_RC_FILES=/home/inpaner/.gtkrc-2.0
 
 setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape'
+xcape -e 'Control_L=Escape' -t 150
 setxkbmap -option shift:both_capslock
 setxkbmap -option compose:ralt
+
