@@ -1,6 +1,7 @@
 set ignorecase
 set smartcase
 set surround
+set multiple-cursors
 set scrolloff=3         " 3 lines above/below cursor when scrolling
 
 set clipboard+=unnamed
@@ -11,15 +12,16 @@ let mapleader = " "
 nmap zj o<Esc>k
 nmap zk O<Esc>j
 
+map <C-e> :action RecentFiles<CR>
+map <C-s> :action EditorSelectWord<CR>
+
 map <leader>g :action GotoDeclaration<cr>
-map <leader>b :action Back<cr>
-map <leader>f :action Forward<cr>
 
 map <leader>f :action GotoFile<cr>
 map <leader>c :action GotoClass<cr>
-map <leader>sy :action GotoSymbol<cr>
+map <leader>s :action GotoSymbol<cr>
 map <leader>m :action FileStructurePopup<cr>
-map <leader>u :action FindUsages<CR>
+map <leader>u :action FindUsages<cr>
 map <leader>e :action ShowErrorDescription<cr>
 map <leader>r :action ChooseRunConfiguration<CR>
 
