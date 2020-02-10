@@ -29,3 +29,6 @@ map <leader>[ :action EditorCodeBlockStart<CR>
 map <leader>] :action EditorCodeBlockEnd<CR>
 
 imap <C-v> <Esc>:action $Paste<CR>
+
+map <leader>y "0y
+map <leader>p "0p
