@@ -1,13 +1,16 @@
+let mapleader = " "
 set ignorecase
 set smartcase
 set surround
 set multiple-cursors
+set easymotion
+set commentary
 set scrolloff=3         " 3 lines above/below cursor when scrolling
+" set iskeyword=@,48-57,_,192-255,?,-,*,!,+,/,=,<,>,.,:,$
 
 set clipboard+=unnamed
 set ideajoin
 
-let mapleader = " "
 
 nmap zj o<Esc>k
 nmap zk O<Esc>j
