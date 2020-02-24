@@ -220,7 +220,7 @@ PROMPT_DIRTRIM=1
 
 export CFLAGS="-O2"
 export PATH="/home/inpaner/.pyenv/bin:$PATH"
-export PATH=$PATH:/home/inpaner/.poetry/bin
+# export PATH=$PATH:/home/inpaner/.poetry/bin
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -256,12 +256,6 @@ alias update='sudo apt update'
 alias upgrade='sudo apt upgrade'
 alias autoremove='sudo apt autoremove'
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/inpaner/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/inpaner/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -269,5 +263,10 @@ if [ -f '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . 
 export FZF_DEFAULT_COMMAND="fd . $HOME"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
-
 # if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/inpaner/google-cloud-sdk/path.zsh.inc' ]; then . '/home/inpaner/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/inpaner/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/inpaner/google-cloud-sdk/completion.zsh.inc'; fi
