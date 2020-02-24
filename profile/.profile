@@ -35,3 +35,5 @@ xcape -e 'Control_L=Escape' -t 150
 setxkbmap -option shift:both_capslock
 setxkbmap -option compose:ralt
 
+
+export PATH="$HOME/.poetry/bin:$PATH"
