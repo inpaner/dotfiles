@@ -6,3 +6,4 @@ let g:netrw_dirhist_3='/home/inpaner/bin'
 let g:netrw_dirhist_4='/home/inpaner'
 let g:netrw_dirhist_5='/home/inpaner/bin'
 let g:netrw_dirhist_6='/home/inpaner/dotfiles/bspwm/.config/bspwm'
+
