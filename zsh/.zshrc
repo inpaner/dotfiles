@@ -21,7 +21,7 @@ setopt hist_reduce_blanks # remove superfluous blanks from history items
 setopt inc_append_history # save history entries as soon as they are entered
 setopt share_history # share history between different instances of the shell
 setopt auto_cd # cd by typing directory name if its not a command
-setopt correct_all # autocorrect commands
+# setopt correct_all # autocorrect commands
 setopt auto_list # automatically list choices on ambiguous completion
 setopt auto_menu # automatically use menu completion
 setopt always_to_end # move cursor to end if word had one match
@@ -219,8 +219,8 @@ function nuke() {git branch -D "$1"; git push origin -d "$1"; git checkout -b "$
 PROMPT_DIRTRIM=1
 
 export CFLAGS="-O2"
-export PATH="/home/inpaner/.pyenv/bin:$PATH"
-export PATH=$PATH:/home/inpaner/.poetry/bin
+export PATH='$PATH:~/.poetry/bin'
+export PATH='~/.pyenv/bin:$PATH'
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -236,17 +236,17 @@ alias non='cd ~/aipros/nlp-online'
 alias na='cd ~/aipros/nlp-api'
 alias nc='cd ~/aipros/nlp-cassandra'
 alias nv='cd ~/aipros/nlp-validator'
+alias bo='cd ~/aipros/bucketer-online'
 
 alias use-dev='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=airep-dev'
 alias use-stg='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=airep-staging'
-alias use-prod='gcloud config set project aip-qmg-travel;kubectl config use-context gke_aip-qmg-travel_us-west1_airep-qmg-travel'
 alias use-cmd='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=campaign-manager-dev'
 alias use-cms='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=campaign-manager-staging'
-alias use-test='gcloud config set project aip-team9-test;kubectl config use-context gke_aip-team9-test_us-west1_team9-k8s'
 
 alias wf='ncwifi'
+alias b='bat'
 alias ls='exa'
-alias l='exa --long --header --git --all'
+alias l='exa --long --git --all'
 alias p='python'
 alias pv='pyenv version'
 alias v='vim'
@@ -256,12 +256,6 @@ alias update='sudo apt update'
 alias upgrade='sudo apt upgrade'
 alias autoremove='sudo apt autoremove'
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/inpaner/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/inpaner/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -269,5 +263,10 @@ if [ -f '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . 
 export FZF_DEFAULT_COMMAND="fd . $HOME"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
-
 # if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/inpaner/google-cloud-sdk/path.zsh.inc' ]; then . '/home/inpaner/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/inpaner/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/inpaner/google-cloud-sdk/completion.zsh.inc'; fi

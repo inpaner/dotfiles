@@ -5,3 +5,5 @@ ranger/.config/ranger/history
 apps/bin/pycharm
 apps/bin/webstorm
 .netrwhist
+kitty/.config/kitty/kitty-themes/
+ranger/.config/ranger/history

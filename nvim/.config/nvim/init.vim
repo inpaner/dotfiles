@@ -33,8 +33,6 @@ set wildmenu
 set wildmode=longest:full,full
 "hide buffers instead of closing them even if they contain unwritten changes
 set hidden
-"disable soft wrap for lines
-set nowrap
 "always display the status line
 set laststatus=2
 "modifiedflag, charcount, filepercent, filepath
