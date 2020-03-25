@@ -219,8 +219,8 @@ function nuke() {git branch -D "$1"; git push origin -d "$1"; git checkout -b "$
 PROMPT_DIRTRIM=1
 
 export CFLAGS="-O2"
-export PATH="/home/inpaner/.pyenv/bin:$PATH"
-# export PATH=$PATH:/home/inpaner/.poetry/bin
+export PATH='$PATH:~/.poetry/bin'
+export PATH='~/.pyenv/bin:$PATH'
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -246,7 +246,7 @@ alias use-cms='gcloud config set project caramel-limiter-145016; kubectl config 
 alias wf='ncwifi'
 alias b='bat'
 alias ls='exa'
-alias l='exa --long --header --git --all'
+alias l='exa --long --git --all'
 alias p='python'
 alias pv='pyenv version'
 alias v='vim'
