@@ -19,6 +19,8 @@ map <C-e> :action RecentFiles<CR>
 map <C-s> :action EditorSelectWord<CR>
 
 map <leader>g :action GotoDeclaration<cr>
+map <leader>j :action Back<cr>
+map <leader>k :action Forward<cr>
 
 map <leader>f :action GotoFile<cr>
 map <leader>c :action GotoClass<cr>
@@ -30,6 +32,8 @@ map <leader>r :action ChooseRunConfiguration<CR>
 
 map <leader>[ :action EditorCodeBlockStart<CR>
 map <leader>] :action EditorCodeBlockEnd<CR>
+
+map <leader>e :action ReformatCode<CR> 
 
 imap <C-v> <Esc>:action $Paste<CR>
 
