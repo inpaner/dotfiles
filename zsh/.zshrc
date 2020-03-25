@@ -219,8 +219,8 @@ function nuke() {git branch -D "$1"; git push origin -d "$1"; git checkout -b "$
 PROMPT_DIRTRIM=1
 
 export CFLAGS="-O2"
-export PATH='$PATH:~/.poetry/bin'
-export PATH='~/.pyenv/bin:$PATH'
+export PATH=$PATH:~/.poetry/bin
+export PATH=~/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
