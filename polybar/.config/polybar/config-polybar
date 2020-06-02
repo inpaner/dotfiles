@@ -38,6 +38,7 @@ radius = 0.0
 fixed-center = true
 bottom = false
 height = 26
+wm-restack = bspwm
 
 !border-bottom-size = 2
 !border-color = ${colors.black}
