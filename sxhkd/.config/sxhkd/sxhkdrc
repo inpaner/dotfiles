@@ -59,10 +59,10 @@ XF86AudioNext
 
 
 XF86MonBrightnessUp
-    xbacklight -inc 20;
+    light -A 20;
 
 XF86MonBrightnessDown
-    xbacklight -dec 20;
+    light -U 20;
 
 alt + F4
 	bspc node --close
