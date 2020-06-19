@@ -266,8 +266,12 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 # if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
+
+export SPICETIFY_INSTALL="/home/inpaner/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/inpaner/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/inpaner/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/inpaner/google-cloud-sdk/path.zsh.inc' ]; then . '/home/inpaner/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/inpaner/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/inpaner/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/inpaner/google-cloud-sdk/completion.zsh.inc'; fi
