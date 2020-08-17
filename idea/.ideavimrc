@@ -33,8 +33,6 @@ map <leader>r :action ChooseRunConfiguration<CR>
 map <leader>[ :action EditorCodeBlockStart<CR>
 map <leader>] :action EditorCodeBlockEnd<CR>
 
-map <leader>e :action ReformatCode<CR> 
-
 imap <C-v> <Esc>:action $Paste<CR>
 
 map <leader>y "0y
