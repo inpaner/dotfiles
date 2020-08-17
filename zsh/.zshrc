@@ -234,6 +234,7 @@ alias sm='sudo service mongod start'
 
 alias nof='cd ~/aipros/nlp-offline'
 alias non='cd ~/aipros/nlp-online'
+alias ner='cd ~/aipros/ner'
 alias na='cd ~/aipros/nlp-api'
 alias nc='cd ~/aipros/nlp-cassandra'
 alias nv='cd ~/aipros/nlp-validator'
@@ -256,6 +257,7 @@ alias poetry-shell='. "$(dirname $(poetry run which python))/activate"'
 alias update='sudo apt update'
 alias upgrade='sudo apt upgrade'
 alias autoremove='sudo apt autoremove'
+alias fd=fdfind
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
