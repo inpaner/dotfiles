@@ -42,7 +42,7 @@ bash $HOME/.config/polybar/launch.sh bspwm &
 feh --bg-fill ~/Pictures/bg.jpg &
 
 dunst -c ~/.config/dunst/dunstrc &
-play ~/Music/1-hour-of-silence.mp3 -q repeat 10 &
+play ~/Music/1-hour-of-silence.mp3 -q repeat 100 &
 
 wmname LG3D
 
@@ -54,6 +54,5 @@ export TERM=xterm
 
 dropbox start
 discord &
-slack &
-
+autokey run functions
 
