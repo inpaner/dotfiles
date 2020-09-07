@@ -14,3 +14,11 @@ rofi.hide-scrollbar: true
 rofi.separator-style: dash
 rofi.fake-transparency: false
 rofi.auto-select: true
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
