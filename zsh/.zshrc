@@ -15,7 +15,7 @@ kitty + complete setup zsh | source /dev/stdin
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-
+fpath+=$HOME/.zsh/pure
 setopt extended_history
 setopt hist_ignore_all_dups # remove older duplicate entries from history
 setopt hist_reduce_blanks # remove superfluous blanks from history items
@@ -30,6 +30,7 @@ setopt globdots
 setopt extendedglob
 
 # Use vim keys in tab complete menu:
+bindkey -v
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
@@ -59,7 +60,8 @@ export ZSH="/home/inpaner/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="bira-fix"
-ZSH_THEME="seeker"
+# ZSH_THEME="seeker"
+ZSH_THEME=""
 
 
 # Set list of themes to load
@@ -116,13 +118,20 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
  plugins=(
     vi-mode
-    gitfast python z 
-    kubectl virtualenv-prompt
+    gitfast 
+    python 
+    z 
+    kubectl 
+#    virtualenv-prompt
     dirhistory
     zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
+
+autoload -U promptinit; promptinit
+zstyle :prompt:pure:git:stash show yes
+prompt pure
 
 # User configuration
 
@@ -273,3 +282,4 @@ if [ -f '/home/inpaner/google-cloud-sdk/path.zsh.inc' ]; then . '/home/inpaner/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/inpaner/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/inpaner/google-cloud-sdk/completion.zsh.inc'; fi
+
