@@ -32,7 +32,6 @@ export GTK2_RC_FILES=/home/inpaner/.gtkrc-2.0
 
 setxkbmap -option caps:ctrl_modifier
 setxkbmap -option shift:both_capslock
-setxkbmap -option nbsp:level2
 setxkbmap -option compose:ralt
 setxkbmap -option ctrl:swapcaps_hyper
 xcape -e 'Control_L=Escape;Shift_L=parenleft;Shift_R=parenright' -t 150
