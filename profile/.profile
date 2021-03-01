@@ -35,6 +35,7 @@ setxkbmap -option shift:both_capslock
 setxkbmap -option compose:ralt
 setxkbmap -option ctrl:swapcaps_hyper
 xcape -e 'Control_L=Escape;Shift_L=parenleft;Shift_R=parenright' -t 150
-
+xset dpms 0 0 0
+xset -dpms s off
 
 export PATH="$HOME/.poetry/bin:$PATH"
