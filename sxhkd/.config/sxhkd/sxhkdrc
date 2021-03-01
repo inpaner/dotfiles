@@ -19,7 +19,7 @@ super + minus
 	bash ~/bin/lock.sh
 
 super + equal
-	systemctl suspend && bash ~/bin/lock.sh
+	sleep 1; xset dpms force off
 
 super + BackSpace
 	bash power-menu -c -p rofi
