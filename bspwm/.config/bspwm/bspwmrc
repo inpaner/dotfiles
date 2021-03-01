@@ -27,7 +27,7 @@ bspc config paddingless_monocle	 false
 bspc config ignore_ewmh_focus true
 bspc config focus_follows_pointer true
 
-bspc rule -a Firefox desktop='^1' follow=false state=pseudo_tiled center=true rectangle=1920x1080+740+740
+bspc rule -a Firefox desktop='^1' follow=false center=true
 bspc rule -a Google-chrome desktop='^1' follow=false center=true
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a jetbrains-pycharm desktop='^2' follow=false
@@ -56,5 +56,4 @@ export TERM=xterm
 dropbox start
 discord &
 autokey run functions
-xset dpms 0 0 0
-xset -dpms s off
+
