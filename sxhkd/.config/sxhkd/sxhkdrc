@@ -15,6 +15,9 @@ super + e
 super + shift + e
 	nemo
 
+super + shift + s
+	flameshot gui
+
 super + minus
 	bash ~/bin/lock.sh
 
