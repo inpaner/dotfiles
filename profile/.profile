@@ -30,12 +30,13 @@ PATH=/home/inpaner/.local/share/umake/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 export GTK2_RC_FILES=/home/inpaner/.gtkrc-2.0
 
-setxkbmap -option caps:ctrl_modifier
-setxkbmap -option shift:both_capslock
+# setxkbmap -option caps:ctrl_modifier
+# setxkbmap -option shift:both_capslock
+# setxkbmap -option ctrl:swapcaps_hyper
+# xcape -e 'Control_L=Escape' -t 150
 setxkbmap -option compose:ralt
-setxkbmap -option ctrl:swapcaps_hyper
-xcape -e 'Control_L=Escape;Shift_L=parenleft;Shift_R=parenright' -t 150
 xset dpms 0 0 0
 xset -dpms s off
+xrandr --output DP-0 --mode 2560x1440 --rate 74.920
 
 export PATH="$HOME/.poetry/bin:$PATH"
