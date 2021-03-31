@@ -259,17 +259,21 @@ alias use-cms='kubectl config set-context --current --namespace=campaign-manager
 
 alias wf='ncwifi'
 alias b='bat'
-alias ls='exa'
-alias l='exa --long --git --all'
+alias l='exa --long --group-directories-first --classify --all --git'
+alias ll='exa --long --group-directories-first --classify --all --git --color always | less -r'
+alias lg='exa --grid --group-directories-first --classify --all'
 alias p='python'
 alias pv='pyenv version'
 alias v='vim '
 alias ma='mongo ai-pros-vp1'
 alias poetry-shell='. "$(dirname $(poetry run which python))/activate"'
-alias update='sudo apt update'
-alias upgrade='sudo apt upgrade'
+alias upd='sudo apt update'
+alias upg='sudo apt upgrade'
 alias autoremove='sudo apt autoremove'
 alias fd=fdfind
+alias t=tig
+alias bt='btm --color gruvbox --group --mem_as_value'
+alias rm=trash
 
 export PATH=~/.nvm/versions/node/v10.23.1/bin:$PATH
 export PATH=~/adb-fastboot/platform-tools:$PATH
