@@ -12,8 +12,10 @@ set clipboard+=unnamed
 set ideajoin
 
 
-nmap zj o<Esc>k
-nmap zk O<Esc>j
+""nmap zj o<Esc>k
+""nmap zk O<Esc>j
+nnoremap zC :action CollapseRegionRecursively<CR>
+nnoremap zO :action ExpandRegionRecursively<CR>
 
 map <C-e> :action RecentFiles<CR>
 map <C-s> :action EditorSelectWord<CR>
