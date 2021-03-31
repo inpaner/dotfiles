@@ -224,8 +224,17 @@ alias gpa='bash ~/repos/personal-scripts/git-pull-all.sh'
 # ----------------------
 # Git log find by commit message
 function glf() { git log --all --grep="$1"; }
-function nuke() {git branch -D "$1"; git push origin -d "$1"; git checkout -b "$1"}
-
+function nuke() { git branch -D "$1"; git push origin -d "$1"; git checkout -b "$1" }
+function gcof() { 
+ git checkout $(git branch --all | fzf | tr -d '[:space:]')
+}
+function gbdf() {
+  git branch |
+    grep --invert-match '\*' |
+    cut -c 3- |
+    fzf --multi --preview="git log {}" |
+    xargs --no-run-if-empty git branch --delete --force
+}
 
 PROMPT_DIRTRIM=1
 
@@ -281,6 +290,7 @@ export NVM_DIR=~/.nvm
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--reverse --border --exact --height=50%'
 export FZF_DEFAULT_COMMAND="fdfind . $HOME"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fdfind -t d . $HOME"
