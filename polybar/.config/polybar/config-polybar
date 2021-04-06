@@ -33,7 +33,7 @@ background-1 = #1d1f21
 ######    BSPWM BAR    ######
 #############################
 [bar/bspwm]
-monitor = eDP-1
+monitor = DP-0
 radius = 0.0
 fixed-center = true
 bottom = false

@@ -15,11 +15,17 @@ super + e
 super + shift + e
 	nemo
 
+super + s
+	flameshot gui
+
+super + shift + s
+	flameshout full -c
+
 super + minus
 	bash ~/bin/lock.sh
 
 super + equal
-	systemctl suspend && bash ~/bin/lock.sh
+	sleep 1; xset dpms force off
 
 super + BackSpace
 	bash power-menu -c -p rofi
@@ -37,13 +43,13 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 XF86AudioMute
-    pactl set-sink-mute 0 toggle
+    amixer -D pulse sset Master toggle
 
 XF86AudioRaiseVolume
-    pactl set-sink-volume 0 +5%
+    amixer -D pulse sset Master 5%+
 
 XF86AudioLowerVolume
-    pactl set-sink-volume 0 -5%;
+    amixer -D pulse sset Master 5%-
 
 
 
@@ -95,7 +101,7 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
+super + {t,shift + t,p,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -162,12 +168,23 @@ super + ctrl + shift + space
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
-	bspc node -z {left -80 0,bottom 0 80,top 0 -80,right 80 0}
+	bspc node -z {left -240 0,bottom 0 240,top 0 -240,right 240 0}
 
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
-	bspc node -z {right -80 0,top 0 80,bottom 0 -80,left 80 0}
+	bspc node -z {right -240 0,top 0 240,bottom 0 -240,left 240 0}
 
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-80 0,0 80,0 -80,80 0}
+
+# rotate on parent
+super + {r,shift + r}
+	bspc node @parent -R {90,-90}
+
+#
+# set layout
+#
+
+super + alt + {1-8}
+	bsp-layout set {tall,rtall,wide,rwide,grid,rgrid,even,tiled}

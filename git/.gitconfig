@@ -2,8 +2,23 @@
 	email = ivan.paner@gmail.com
 	name = Ivan Paner
 [core]
-	editor = vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = vim -c 'startinsert'
+	pager = delta 
+
+[delta]
+    features = unobtrusive-line-numbers
+    syntax-theme = gruvbox
+    side-by-side = true
+
+[delta "unobtrusive-line-numbers"]
+    line-numbers = true
+    line-numbers-minus-style = "#504945"
+    line-numbers-zero-style = "#504945"
+    line-numbers-plus-style = "#504945"
+    line-numbers-left-format = "{nm:>4}│"
+    line-numbers-right-format = "{np:>4}│"
+    line-numbers-left-style = blue
+    line-numbers-right-style = blue
 
 [color "diff"]
 	meta = "yellow bold"
@@ -18,5 +33,7 @@
 	oldHighlight = "red bold 52"
 	newNormal = "green bold"
 	newHighlight = "green bold 22"
+
 [pull]
 	rebase = false
+

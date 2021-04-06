@@ -122,9 +122,10 @@ COMPLETION_WAITING_DOTS="true"
     python 
     z 
     kubectl 
-#    virtualenv-prompt
+    # virtualenv-prompt
     dirhistory
     zsh-syntax-highlighting
+    kubetail
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -192,7 +193,6 @@ alias gcos='git checkout staging'
 alias gcod='git checkout develop'
 alias gd='git diff'
 alias gda='git diff HEAD'
-alias gi='git init'
 alias glg='git log --graph --oneline --decorate --all'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human"
 alias glp="git log -p"
@@ -206,6 +206,7 @@ alias gp='git pull'
 alias gpr='git pull --rebase=preserve'
 alias gps='git push --set-upstream origin $(git_current_branch)'
 alias gpd='git push origin -d'
+alias gpush='git push'
 alias gr='git rebase'
 alias gs='git status'
 alias gss='git status --short'
@@ -223,8 +224,17 @@ alias gpa='bash ~/repos/personal-scripts/git-pull-all.sh'
 # ----------------------
 # Git log find by commit message
 function glf() { git log --all --grep="$1"; }
-function nuke() {git branch -D "$1"; git push origin -d "$1"; git checkout -b "$1"}
-
+function nuke() { git branch -D "$1"; git push origin -d "$1"; git checkout -b "$1" }
+function gcof() { 
+ git checkout $(git branch --all | fzf | tr -d '[:space:]')
+}
+function gbdf() {
+  git branch |
+    grep --invert-match '\*' |
+    cut -c 3- |
+    fzf --multi --preview="git log {}" |
+    xargs --no-run-if-empty git branch --delete --force
+}
 
 PROMPT_DIRTRIM=1
 
@@ -248,34 +258,46 @@ alias na='cd ~/aipros/nlp-api'
 alias nc='cd ~/aipros/nlp-cassandra'
 alias nv='cd ~/aipros/nlp-validator'
 alias bo='cd ~/aipros/bucketer-online'
+alias nt='cd ~/repos/nlp-thesis'
 
-alias use-dev='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=airep-dev'
-alias use-stg='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=airep-staging'
-alias use-cmd='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=campaign-manager-dev'
-alias use-cms='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=campaign-manager-staging'
+alias use-init='gcloud config set project caramel-limiter-145016; kubectl config use-context gke_caramel-limiter-145016_us-west1-b_ai-rep; kubectl config set-context --current --namespace=airep-dev'
+alias use-dev='kubectl config set-context --current --namespace=airep-dev'
+alias use-stg='kubectl config set-context --current --namespace=airep-staging'
+alias use-cmd='kubectl config set-context --current --namespace=campaign-manager-dev'
+alias use-cms='kubectl config set-context --current --namespace=campaign-manager-staging'
 
 alias wf='ncwifi'
 alias b='bat'
-alias ls='exa'
-alias l='exa --long --git --all'
+alias l='exa --long --group-directories-first --classify --all --git'
+alias ll='exa --long --group-directories-first --classify --all --git --color always | less -r'
+alias lg='exa --grid --group-directories-first --classify --all'
 alias p='python'
 alias pv='pyenv version'
-alias v='vim'
+alias v='vim '
 alias ma='mongo ai-pros-vp1'
 alias poetry-shell='. "$(dirname $(poetry run which python))/activate"'
-alias update='sudo apt update'
-alias upgrade='sudo apt upgrade'
+alias upd='sudo apt update'
+alias upg='sudo apt upgrade'
 alias autoremove='sudo apt autoremove'
 alias fd=fdfind
+alias t=tig
+alias bt='btm --color gruvbox --group --mem_as_value'
+alias rm=trash
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export PATH=~/.nvm/versions/node/v10.23.1/bin:$PATH
+export PATH=~/adb-fastboot/platform-tools:$PATH
+export NVM_DIR=~/.nvm
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND="fd . $HOME"
+export FZF_DEFAULT_OPTS='--reverse --border --exact --height=50%'
+export FZF_DEFAULT_COMMAND="fdfind . $HOME"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+export FZF_ALT_C_COMMAND="fdfind -t d . $HOME"
 # if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
+
+export SPICETIFY_INSTALL="/home/inpaner/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/inpaner/google-cloud-sdk/path.zsh.inc' ]; then . '/home/inpaner/google-cloud-sdk/path.zsh.inc'; fi
@@ -283,3 +305,5 @@ if [ -f '/home/inpaner/google-cloud-sdk/path.zsh.inc' ]; then . '/home/inpaner/g
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/inpaner/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/inpaner/google-cloud-sdk/completion.zsh.inc'; fi
 
+
+export PATH="$HOME/.poetry/bin:$PATH"
