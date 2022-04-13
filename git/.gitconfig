@@ -1,13 +1,34 @@
+[include]
+    path = /home/inpaner/themes.gitconfig
+
 [user]
 	email = ivan.paner@gmail.com
 	name = Ivan Paner
+
 [core]
-	editor = vim -c 'startinsert'
-	pager = delta 
+	editor = nvim -c 'startinsert'
+#    pager = delta 
+
+[diff]
+    external = difft
+    algorithm = histogram
+    colorMoved = default
+    # tool = difftastic
+    tool = delta
+
+[difftool]
+    prompt = false
+
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+
+[interactive]
+    diffFilter = delta --color-only
 
 [delta]
-    features = unobtrusive-line-numbers
-    syntax-theme = gruvbox
+    navigate = true
+    features = decorations self
+    # syntax-theme = gruvbox
     side-by-side = true
 
 [delta "unobtrusive-line-numbers"]
@@ -19,6 +40,26 @@
     line-numbers-right-format = "{np:>4}│"
     line-numbers-left-style = blue
     line-numbers-right-style = blue
+
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow
+  file-decoration-style = yellow bold ul ol
+  hunk-header-decoration-style = blue box
+  hunk-header-style = normal
+
+[delta "self"]
+    syntax-theme = none
+    whitespace-error-style = red reverse
+    minus-style = red normal
+    minus-non-emph-style = normal normal dim
+    minus-emph-style = red reverse
+    plus-style = green normal
+    plus-non-emph-style = normal normal
+    plus-emph-style = green reverse
+    minus-empty-line-marker-style = normal red ul
+    plus-empty-line-marker-style = normal green ul
+
 
 [color "diff"]
 	meta = "yellow bold"
@@ -37,3 +78,19 @@
 [pull]
 	rebase = false
 
+[init]
+	defaultBranch = main
+
+[merge]
+    conflictStyle = diff3
+
+[pager]
+    blame = delta
+    difftool = true
+    branch = false
+
+[includeIf "gitdir:~/tm/"]
+    path = ~/tm/.gitconfig
+
+[alias]
+    dft = difftool

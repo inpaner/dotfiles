@@ -1,41 +1,65 @@
 let mapleader = " "
 set ignorecase
+set ideamarks
 set smartcase
 set surround
 set multiple-cursors
 set easymotion
 set commentary
-set scrolloff=3         " 3 lines above/below cursor when scrolling
+set textobj-entire
+set ReplaceWithRegister
+set scrolloff=8         " 3 lines above/below cursor when scrolling
 " set iskeyword=@,48-57,_,192-255,?,-,*,!,+,/,=,<,>,.,:,$
+set number relativenumber
+set selectmode=mouse
 
 set clipboard+=unnamed
 set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
 
+let g:argtextobj_pairs="[:],(:),<:>"
 
 ""nmap zj o<Esc>k
 ""nmap zk O<Esc>j
 nnoremap zC :action CollapseRegionRecursively<CR>
 nnoremap zO :action ExpandRegionRecursively<CR>
 
-map <C-e> :action RecentFiles<CR>
+map <C-e> :action ShowErrorDescription<cr>
 map <C-s> :action EditorSelectWord<CR>
+map <C-n> :action RenameElement<CR>
 
 map <leader>g :action GotoDeclaration<cr>
 map <leader>j :action Back<cr>
 map <leader>k :action Forward<cr>
 
 map <leader>f :action GotoFile<cr>
-map <leader>c :action GotoClass<cr>
-map <leader>s :action GotoSymbol<cr>
-map <leader>m :action FileStructurePopup<cr>
 map <leader>u :action FindUsages<cr>
-map <leader>e :action ShowErrorDescription<cr>
+
+map <leader>e :action RecentFiles<CR>
 map <leader>r :action ChooseRunConfiguration<CR>
 
 map <leader>[ :action EditorCodeBlockStart<CR>
 map <leader>] :action EditorCodeBlockEnd<CR>
 
-imap <C-v> <Esc>:action $Paste<CR>
+map <leader>d :action Debug<CR>
+map <leader>c :action Stop<CR>
+
+map <leader>s <Action>(SelectInProjectView)
+map <leader>a <Action>(Annotate)
+map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>o <Action>(FileStructurePopup)
+
+""imap <C-v> <Esc>:action $Paste<CR>
 
 map <leader>y "0y
 map <leader>p "0p
+
+" Press `f` to activate AceJump
+map f :action AceAction<CR>
+" Press `F` to activate Target Mode
+map F :action AceTargetAction<CR>
+" Press `g` to activate Line Mode
+" map g :action AceLineAction<CR>

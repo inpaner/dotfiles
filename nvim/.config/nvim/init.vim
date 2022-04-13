@@ -1,13 +1,7 @@
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'morhetz/gruvbox'
-call plug#end()
-set background=dark 
-colorscheme gruvbox
-
 syntax on
 
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
-set incsearch ignorecase smartcase hlsearch
+set incsearch ignorecase smartcase nohlsearch
 set ruler laststatus=2 showcmd showmode
 set list listchars=trail:»,tab:»-
 set fillchars+=vert:\ 
@@ -15,45 +9,44 @@ set wrap breakindent
 set encoding=utf-8
 set title
 set clipboard+=unnamedplus
-
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set scrolloff=8
+set signcolumn=yes
 
 "https://aonemd.github.io/blog/minimal-vim
 
-"more characters will be sent to the screen for redrawing
 set ttyfast
-"time waited for key press(es) to complete. It makes for a faster key response
 set ttimeout
 set ttimeoutlen=50
-"make backspace behave properly in insert mode
 set backspace=indent,eol,start
-"display incomplete commands
 set showcmd
-"a better menu in command mode
 set wildmenu
 set wildmode=longest:full,full
-"hide buffers instead of closing them even if they contain unwritten changes
 set hidden
-"always display the status line
 set laststatus=2
-"modifiedflag, charcount, filepercent, filepath
 set statusline=%=%m\ %c\ %P\ %f
-"display line numbers on the left side
-set number
-"highlight current line
+set number relativenumber
 set cursorline
-"display text width column
 set colorcolumn=88
-"new splits will be at the bottom or to the right side of the screen
 set splitbelow
 set splitright
-
-"always set autoindenting on
 set autoindent
 
-nnoremap <esc> :noh<return><esc>
+""call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged')
+Plug 'gruvbox-community/gruvbox'
+"Plug 'nvim-lua/popup.nvim'
+""Plug 'nvim-lua/plenary.nvim'
+""Plug 'nvim-telescope/telescope.nvim'
+call plug#end()
+set background=dark 
+colorscheme gruvbox
 
-"The Leader
-let mapleader="\<Space>"
+
+let mapleader=" "
 
 "save current buffer
 nnoremap <leader>w :w<cr>
@@ -96,8 +89,7 @@ nnoremap <silent> <C-j> :call WinMove('j')<cr>
 nnoremap <silent> <C-k> :call WinMove('k')<cr>
 nnoremap <silent> <C-l> :call WinMove('l')<cr>
 
-function! WinMove(key)
-  let t:curwin = winnr()
+function! WinMove(key) 
   exec "wincmd ".a:key
   if (t:curwin == winnr())
     if (match(a:key,'[jk]'))

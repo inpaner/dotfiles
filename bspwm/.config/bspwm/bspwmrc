@@ -27,13 +27,10 @@ bspc config paddingless_monocle	 false
 bspc config ignore_ewmh_focus true
 bspc config focus_follows_pointer true
 
-bspc rule -a Firefox desktop='^1' follow=false center=true
+bspc rule -a Firefox follow=false center=true
 bspc rule -a Google-chrome follow=false center=true
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a jetbrains-pycharm desktop='^2' follow=false
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a discord desktop='^8' follow=false
 bspc rule -a Slack desktop='^9' follow=false
@@ -53,6 +50,7 @@ export VISUAL='vim -X'
 export EDITOR='vim -X'
 export TERM=xterm
 
-dropbox start
+#dropbox start &
 discord &
-
+slack &
+clipit &

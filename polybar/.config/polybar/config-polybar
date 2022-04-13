@@ -56,13 +56,14 @@ modules-left = bspwm
 modules-center = xwindow
 modules-right =  network volume battery date
 
-tray-position = right
+;tray-position = right
 background-0 = ${colors.black}
 background-1 = ${colors.black}
 foreground = ${colors.white}
 
 ;font-0 = Mononoki:size=10;2
-font-0 = DejaVu Sans Mono:size=10;2
+;font-0 = DejaVu Sans Mono:size=10;2
+font-0 = PragmataPro Mono:size=12;1
 font-1 = Font Awesome 5 Free:style=Regular:pixelsize=8;1
 font-2 = Font Awesome 5 Free:style=Solid:pixelsize=8;1
 font-3 = Font Awesome 5 Brands:pixelsize=8;1
